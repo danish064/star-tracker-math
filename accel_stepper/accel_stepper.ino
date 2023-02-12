@@ -9,11 +9,12 @@
 #define HALFSTEP 8
 
 const int operationMode = FULLSTEP;
-long stepsPerRev = 2038;  //steps per stepper motor revolution
-const float rpm = 10;
+long stepsPerRev = 48;  //steps per stepper motor revolution
+const float rpm =4;
+
 float rps = (stepsPerRev * rpm) / 60;
 
-AccelStepper myStepper(operationMode, motorPin1, motorPin3, motorPin2, motorPin4);  // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
+AccelStepper myStepper(operationMode, motorPin1, motorPin2, motorPin3, motorPin4);  // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
 long totalSteps = 0;
 
 void runMotor() {
