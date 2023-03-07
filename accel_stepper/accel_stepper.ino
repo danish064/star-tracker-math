@@ -1,16 +1,16 @@
 #include <AccelStepper.h>
 
 #define motorPin1 8   // IN1 on the ULN2003 driver 1
-#define motorPin2 9   // IN2 on the ULN2003 driver 1
-#define motorPin3 10  // IN3 on the ULN2003 driver 1
+#define motorPin2 10   // IN2 on the ULN2003 driver 1
+#define motorPin3 9  // IN3 on the ULN2003 driver 1
 #define motorPin4 11  // IN4 on the ULN2003 driver 1
 
 #define FULLSTEP 4
 #define HALFSTEP 8
 
 const int operationMode = FULLSTEP;
-long stepsPerRev = 48;  //steps per stepper motor revolution
-const float rpm =4;
+long stepsPerRev = 2048 ;  //steps per stepper motor revolution
+const float rpm =3;
 
 float rps = (stepsPerRev * rpm) / 60;
 
