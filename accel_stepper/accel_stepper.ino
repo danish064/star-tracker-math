@@ -10,7 +10,7 @@
 
 const int operationMode = FULLSTEP;
 long stepsPerRev = 2048 ;  //steps per stepper motor revolution
-const float rpm =3;
+const float rpm =2;
 
 float rps = (stepsPerRev * rpm) / 60;
 
