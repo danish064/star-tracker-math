@@ -1,16 +1,16 @@
 #include <AccelStepper.h>
 
 #define motorPin1 8   // IN1 on the ULN2003 driver 1
-#define motorPin2 10   // IN2 on the ULN2003 driver 1
-#define motorPin3 9  // IN3 on the ULN2003 driver 1
+#define motorPin2 10  // IN2 on the ULN2003 driver 1
+#define motorPin3 9   // IN3 on the ULN2003 driver 1
 #define motorPin4 11  // IN4 on the ULN2003 driver 1
 
 #define FULLSTEP 4
 #define HALFSTEP 8
 
 const int operationMode = FULLSTEP;
-long stepsPerRev = 2048 ;  //steps per stepper motor revolution
-const float rpm =2;
+long stepsPerRev = 2048;  //steps per stepper motor revolution
+const float rpm = 3.5;
 
 float rps = (stepsPerRev * rpm) / 60;
 
@@ -33,6 +33,7 @@ void checkSerial() {
   }
 }
 void setup() {
+
   Serial.begin(9600);
   if (operationMode == HALFSTEP) {
     stepsPerRev = stepsPerRev + stepsPerRev;
@@ -40,7 +41,8 @@ void setup() {
   }
   Serial.print("Total Steps: ");
   Serial.println(stepsPerRev);
-  Serial.println(rps);
+  Serial.println("Current Rotations per second (RPS): " + String(rps));
+  Serial.println("Current RPM: " + String(rpm));
   myStepper.setMaxSpeed(stepsPerRev);  // this limits the value of setSpeed(). Raise it if you like.
   myStepper.setSpeed(rps);             // runSpeed() will run the motor at this speed - steps per second
   // myStepper.setAcceleration(100);
